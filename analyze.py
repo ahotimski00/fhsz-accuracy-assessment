@@ -165,11 +165,10 @@ def write_report(cm, w, res) -> None:
         "class": names,
         "n_ref": cm.sum(axis=0).astype(int),
         "UA": res["ua"].round(2),
-        "UA_95CI": [f"+/-{Z*s:.2f}" for s in res["se_ua"]],
         "PA": res["pa"].round(2),
-        "PA_95CI": [f"+/-{Z*s:.2f}" for s in res["se_pa"]],
-        "area_ha": (res["p_col"] * TOTAL_AREA_HA).round(0).astype(int),
-        "area_95CI_ha": (Z * res["se_pcol"] * TOTAL_AREA_HA).round(0).astype(int),
+        "map_area_ha": (w * TOTAL_AREA_HA).round(0).astype(int),
+        "adj_area_ha": (res["p_col"] * TOTAL_AREA_HA).round(0).astype(int),
+        "adj_95CI_ha": (Z * res["se_pcol"] * TOTAL_AREA_HA).round(0).astype(int),
     })
     merges = {
         "baseline (9 classes)": {c: c for c in CLASSES},
@@ -188,7 +187,11 @@ def write_report(cm, w, res) -> None:
         f"- **Overall accuracy (count-based):** {res['oa_count']:.3f}",
         f"- **Overall accuracy (area-adjusted):** {res['oa']:.3f} "
         f"+/- {Z*res['se_oa']:.3f} (95% CI)\n",
-        "## Per-class accuracy and area (95% CI)\n",
+        "## Per-class accuracy and area\n",
+        "`map_area_ha` is the raw mapped area (pixel count); `adj_area_ha` is the "
+        "accuracy-adjusted estimate of true area, with a 95% CI. The three "
+        "development classes sum to ~16,600 ha of raw mapped area but only "
+        "~5,700 ha adjusted, the gap being commission error.\n",
         per_class.to_markdown(index=False),
         "\n\n## Class-merge sensitivity (area-adjusted OA)\n",
         pd.DataFrame(merge_rows).to_markdown(index=False),
