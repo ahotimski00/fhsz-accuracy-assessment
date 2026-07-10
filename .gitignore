@@ -1,0 +1,6 @@
+# Large source rasters and reference shapefiles are not tracked.
+data/
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
