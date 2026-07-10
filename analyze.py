@@ -123,19 +123,18 @@ def oa_area_merged(cm: np.ndarray, w: np.ndarray, groups: dict) -> float:
 
 def plot_confusion(cm: np.ndarray) -> None:
     names = [LEGEND[c] for c in CLASSES]
-    fig, ax = plt.subplots(figsize=(9, 8))
-    ax.imshow(cm, cmap="Greens")
+    fig, ax = plt.subplots(figsize=(11, 6))
+    ax.imshow(cm, cmap="Greens", vmax=cm.max() * 1.7, aspect="auto")
     for i in range(len(CLASSES)):
         for j in range(len(CLASSES)):
             v = int(cm[i, j])
             if v:
-                ax.text(j, i, v, ha="center", va="center",
-                        color="white" if i == j else "black", fontsize=9)
+                ax.text(j, i, v, ha="center", va="center", color="black", fontsize=9)
     ax.set_xticks(range(len(CLASSES)), names, rotation=45, ha="right")
     ax.set_yticks(range(len(CLASSES)), names)
     ax.set_xlabel("Reference (truth)")
     ax.set_ylabel("Map (classified)")
-    ax.set_title("Reproduced sample-count confusion matrix (n=317)")
+    ax.set_title("Sample-count confusion matrix (n=317)")
     fig.tight_layout()
     fig.savefig(OUT / "confusion_matrix.png", dpi=140)
     plt.close(fig)
@@ -148,7 +147,7 @@ def plot_accuracy(res: dict) -> None:
     ax.bar(x - 0.2, res["ua"], 0.4, yerr=Z * res["se_ua"], capsize=3,
            label="User's accuracy", color="#3a7d44")
     ax.bar(x + 0.2, res["pa"], 0.4, yerr=Z * res["se_pa"], capsize=3,
-           label="Producer's accuracy", color="#8a5a2b")
+           label="Producer's accuracy", color="#e67e22")
     ax.set_xticks(x, names, rotation=45, ha="right")
     ax.set_ylim(0, 1.05)
     ax.set_ylabel("Accuracy")
