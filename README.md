@@ -68,7 +68,3 @@ for accuracy rather than counting pixels.
 The estimates are design-based on the study's stratified random sample, so the
 confidence intervals are design-unbiased and do not depend on the spatial
 arrangement of the points.
-
-*Legend confirmed against the study's 9-class schema. The original slide's
-user's-accuracy row appears mislabeled; the values here are computed directly
-(diagonal / mapped-class total).*
