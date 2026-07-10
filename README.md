@@ -63,10 +63,13 @@ for accuracy rather than counting pixels.
 
 ## Limitations
 
-- The rare classes need more reference points before their accuracy or adjusted
-  area can be stated with confidence.
-- Reference points may be spatially autocorrelated; spatial sampling would give a
-  more conservative interval.
+- The rare development classes rest on only 3-6 reference points, so their
+  per-class accuracy and adjusted area carry wide intervals regardless of method;
+  more reference points are the only real fix.
+
+The estimates are design-based on the study's stratified random sample, so the
+confidence intervals are design-unbiased and do not depend on the spatial
+arrangement of the points.
 
 *Legend confirmed against the study's 9-class schema. The original slide's
 user's-accuracy row appears mislabeled; the values here are computed directly
