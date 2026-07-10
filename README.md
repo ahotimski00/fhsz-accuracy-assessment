@@ -1,7 +1,6 @@
 # FHSZ change map: accuracy assessment, reproduced and stress-tested
 
-A rigorous follow-up to the LA County Fire Hazard Severity Zone change-detection
-study. It rebuilds the study's accuracy assessment from the raw sample points and
+LA County Fire Hazard Severity Zone change-detection study's accuracy assessment from the raw sample points and
 applies Olofsson et al. (2014) good-practice estimation: area-adjusted overall
 accuracy, per-class user's and producer's accuracy, and area estimates, each with
 a 95% confidence interval, plus a class-merge sensitivity test.
