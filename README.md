@@ -56,8 +56,7 @@ pixels are commission error. The area-adjusted estimate is ~2,000 ha with a wide
 interval. Summed across the three development classes, the raw map area of
 ~16,600 ha corrects to a design-based estimate of roughly ~5,700 ha, and the
 qualitative finding (development inside hazard zones) holds while the magnitude is
-much smaller and uncertain. This is exactly why good-practice reporting adjusts
-for accuracy rather than counting pixels.
+much smaller and uncertain. Design-based adjustment corrects for this commission error.
 
 ## Limitations
 
